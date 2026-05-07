@@ -265,14 +265,68 @@
     updatePackerSummary();
   }
 
-  // ---------- Map pin tooltips ----------
-  document.querySelectorAll('.map-pin').forEach(p => {
-    p.addEventListener('click', () => {
-      const target = p.getAttribute('data-stop');
-      if (!target) return;
-      document.getElementById(target)?.scrollIntoView({behavior:'smooth', block:'start'});
+  // ---------- Leaflet maps (Chiang Mai + Bangkok) ----------
+  function initTripMaps() {
+    if (typeof L === 'undefined') return; // Leaflet not yet loaded
+    const cmEl = document.getElementById('map-cm');
+    const bkkEl = document.getElementById('map-bkk');
+    if (!cmEl || !bkkEl) return;
+
+    const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    const tileOpts = {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    };
+
+    const stops = (window.TRIP && window.TRIP.stops) || [];
+    const cmStops = stops.filter(s => !s.ryan && s.coords && !s.skipJoin);
+    const bkkStops = stops.filter(s => s.ryan && s.coords);
+
+    function makeMarker(stop, isBkk) {
+      const icon = L.divIcon({
+        className: '',
+        html: `<div class="trip-marker${isBkk ? ' bkk' : ''}" data-stop="${stop.id}"></div>`,
+        iconSize: [14, 14],
+        iconAnchor: [7, 7]
+      });
+      const marker = L.marker(stop.coords, { icon, title: stop.title });
+      const dayLabel = isBkk ? `BKK · D${stop.day}` : `Day ${stop.day} · ${stop.time}`;
+      const popupHtml = `
+        <strong>${stop.title}</strong>
+        <span>${stop.titleEn || ''}</span>
+        <small>${dayLabel} · ${stop.kind || ''}</small>
+        <a data-jump="${stop.id}">Jump to stop ↓</a>
+      `;
+      marker.bindPopup(popupHtml, { className: 'trip-popup', closeButton: false, offset: [0, -4] });
+      marker.on('click', () => marker.openPopup());
+      return marker;
+    }
+
+    // Chiang Mai map
+    const cmMap = L.map(cmEl, { scrollWheelZoom: false, zoomControl: true });
+    L.tileLayer(tileUrl, tileOpts).addTo(cmMap);
+    const cmGroup = L.featureGroup(cmStops.map(s => makeMarker(s, false))).addTo(cmMap);
+    if (cmStops.length) cmMap.fitBounds(cmGroup.getBounds().pad(0.18));
+    else cmMap.setView([18.79, 98.98], 12);
+
+    // Bangkok map
+    const bkkMap = L.map(bkkEl, { scrollWheelZoom: false, zoomControl: true });
+    L.tileLayer(tileUrl, tileOpts).addTo(bkkMap);
+    const bkkGroup = L.featureGroup(bkkStops.map(s => makeMarker(s, true))).addTo(bkkMap);
+    if (bkkStops.length) bkkMap.fitBounds(bkkGroup.getBounds().pad(0.22));
+    else bkkMap.setView([13.75, 100.55], 12);
+
+    // Delegate "Jump to stop" links inside popups
+    document.addEventListener('click', e => {
+      const a = e.target.closest('a[data-jump]');
+      if (!a) return;
+      e.preventDefault();
+      const id = a.getAttribute('data-jump');
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
-  });
+  }
+  if (typeof L !== 'undefined') initTripMaps();
+  else window.addEventListener('load', initTripMaps);
 
   // ---------- Initial render ----------
   renderAllRosters();

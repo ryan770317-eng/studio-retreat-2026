@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
 
 <!-- Google Sheets webhook URL — paste your Apps Script /exec URL here -->
 <script>
@@ -871,51 +873,25 @@
       </div>
     </div>
 
-    <div class="map-wrap">
-      <svg class="map-svg" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
-        <!-- background -->
-        <rect width="1600" height="900" fill="#ECE5D6"/>
-        <!-- decorative grid -->
-        <g stroke="#D9D2C2" stroke-width="0.5" opacity="0.5">
-          <line x1="0" y1="225" x2="1600" y2="225"/>
-          <line x1="0" y1="450" x2="1600" y2="450"/>
-          <line x1="0" y1="675" x2="1600" y2="675"/>
-          <line x1="400" y1="0" x2="400" y2="900"/>
-          <line x1="800" y1="0" x2="800" y2="900"/>
-          <line x1="1200" y1="0" x2="1200" y2="900"/>
-        </g>
-        <!-- divider between cities -->
-        <line x1="800" y1="80" x2="800" y2="820" stroke="#1C1A17" stroke-width="0.5" stroke-dasharray="4 6"/>
-
-        <!-- Chiang Mai label -->
-        <text x="60" y="80" font-family="Cormorant Garamond, serif" font-size="42" fill="#1C1A17">Chiang Mai</text>
-        <text x="60" y="108" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="3" fill="#8A8278">5.14 — 5.18</text>
-
-        <!-- Bangkok label -->
-        <text x="860" y="80" font-family="Cormorant Garamond, serif" font-size="42" fill="#1C1A17">Bangkok</text>
-        <text x="860" y="108" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="3" fill="#8A8278">5.18 — 5.20 · Ryan</text>
-
-        <!-- Chiang Mai pins (rough relative layout) -->
-        <g class="map-pin" data-stop="d1-baankang"><circle class="outer" cx="180" cy="540" r="22"/><circle class="inner" cx="180" cy="540" r="6"/><text x="200" y="544">Baan Kang Wat · D1</text></g>
-        <g class="map-pin" data-stop="d1-graph"><circle class="outer" cx="320" cy="640" r="22"/><circle class="inner" cx="320" cy="640" r="6"/><text x="340" y="644">GRAPH · D1</text></g>
-        <g class="map-pin" data-stop="d2-kaomai"><circle class="outer" cx="120" cy="320" r="22"/><circle class="inner" cx="120" cy="320" r="6"/><text x="140" y="324">Kaomai Lanna · D2</text></g>
-        <g class="map-pin" data-stop="d2-weave"><circle class="outer" cx="280" cy="380" r="22"/><circle class="inner" cx="280" cy="380" r="6"/><text x="300" y="384">Weave · D2</text></g>
-        <g class="map-pin" data-stop="d2-huenphen"><circle class="outer" cx="460" cy="460" r="22"/><circle class="inner" cx="460" cy="460" r="6"/><text x="480" y="464">Huen Phen ★ · D2</text></g>
-        <g class="map-pin" data-stop="d3-maiiam"><circle class="outer" cx="600" cy="280" r="22"/><circle class="inner" cx="600" cy="280" r="6"/><text x="620" y="284">MAIIAM · D3</text></g>
-        <g class="map-pin" data-stop="d3-watumong"><circle class="outer" cx="220" cy="700" r="22"/><circle class="inner" cx="220" cy="700" r="6"/><text x="240" y="704">Wat Umong · D3</text></g>
-        <g class="map-pin" data-stop="d3-sense-spa"><circle class="outer" cx="500" cy="580" r="22"/><circle class="inner" cx="500" cy="580" r="6"/><text x="520" y="584">Oasis Spa Lanna ★ · D3</text></g>
-        <g class="map-pin" data-stop="d4-phalat"><circle class="outer" cx="100" cy="180" r="22"/><circle class="inner" cx="100" cy="180" r="6"/><text x="120" y="184">Wat Pha Lat · D4</text></g>
-        <g class="map-pin" data-stop="d4-maya"><circle class="outer" cx="420" cy="200" r="22"/><circle class="inner" cx="420" cy="200" r="6"/><text x="440" y="204">MAYA · D4</text></g>
-        <g class="map-pin" data-stop="d4-wualai-mkt"><circle class="outer" cx="640" cy="720" r="22"/><circle class="inner" cx="640" cy="720" r="6"/><text x="660" y="724">Wualai Saturday · D4</text></g>
-
-        <!-- Bangkok pins -->
-        <g class="map-pin bkk" data-stop="r1-dib"><circle class="outer" cx="900" cy="320" r="22"/><circle class="inner" cx="900" cy="320" r="6"/><text x="920" y="324">Dib · BKK D6</text></g>
-        <g class="map-pin bkk" data-stop="r2-ortorkor"><circle class="outer" cx="1080" cy="220" r="22"/><circle class="inner" cx="1080" cy="220" r="6"/><text x="1100" y="224">Or Tor Kor · BKK D7</text></g>
-        <g class="map-pin bkk" data-stop="r2-erawan"><circle class="outer" cx="1240" cy="400" r="22"/><circle class="inner" cx="1240" cy="400" r="6"/><text x="1260" y="404">Erawan · BKK D7</text></g>
-        <g class="map-pin bkk" data-stop="r2-80below"><circle class="outer" cx="1380" cy="500" r="22"/><circle class="inner" cx="1380" cy="500" r="6"/><text x="1400" y="504">80below · BKK D7</text></g>
-        <g class="map-pin bkk" data-stop="r2-oasis"><circle class="outer" cx="1080" cy="580" r="22"/><circle class="inner" cx="1080" cy="580" r="6"/><text x="1100" y="584">Oasis Spa · BKK D7</text></g>
-        <g class="map-pin bkk" data-stop="r3-fbt"><circle class="outer" cx="940" cy="700" r="22"/><circle class="inner" cx="940" cy="700" r="6"/><text x="960" y="704">Fewer Better Things · BKK D8</text></g>
-      </svg>
+    <div class="map-grid">
+      <div class="map-col">
+        <div class="map-col-head">
+          <div class="map-col-title">Chiang Mai</div>
+          <div class="map-col-dates">5.14 — 5.18</div>
+        </div>
+        <div class="map-wrap">
+          <div id="map-cm" class="map-leaflet"></div>
+        </div>
+      </div>
+      <div class="map-col">
+        <div class="map-col-head">
+          <div class="map-col-title">Bangkok</div>
+          <div class="map-col-dates">5.18 — 5.20 · Ryan</div>
+        </div>
+        <div class="map-wrap">
+          <div id="map-bkk" class="map-leaflet"></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
