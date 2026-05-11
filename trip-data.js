@@ -16,7 +16,7 @@ window.TRIP = {
     { id:"d1-baankang",    day:1, time:"12:45", title:"Baan Kang Wat 藝術村",        titleEn:"Baan Kang Wat Artist Village",              kind:"景點 · Village",   grab:80,  coords:[18.7691, 98.9404] },
     { id:"d1-no39",        day:1, time:"14:45", title:"No.39 Café",                  titleEn:"Lakeside Treehouse Café",                   kind:"咖啡 · Café",      grab:0,   coords:[18.7066, 98.9189] },
     { id:"d1-graph",       day:1, time:"16:10", title:"GRAPH Contemporary",          titleEn:"Riverside Coffee & Gallery",                kind:"藝廊 · Gallery",   grab:120, coords:[18.7846, 99.0023] },
-    { id:"d1-nimman",      day:1, time:"19:30", title:"尼曼路自由晚餐",              titleEn:"Nimman Free Dinner",                        kind:"自由 · Free time", grab:0, free:true, coords:[18.8000, 98.9686] },
+    { id:"d2-huenphen",    day:1, time:"19:00", title:"Huen Phen Nimman 員工聚餐",   titleEn:"Studio Dinner · Northern Thai",             kind:"聚餐 · Dinner",    grab:120, highlight:true, coords:[18.8009, 98.9676] },
 
     // ───── Day 2 — 5/15 五 ─────
     { id:"d2-kaomai",      day:2, time:"08:10", title:"Kaomai Lanna Resort",         titleEn:"UNESCO Heritage Tobacco Barns · 1955",      kind:"建築 · Heritage",  grab:450, coords:[18.6300, 98.8900] },
@@ -25,7 +25,7 @@ window.TRIP = {
     { id:"d2-kaomai-lunch",day:2, time:"11:30", title:"Kaomai 餐廳午餐",              titleEn:"Lunch at Kaomai",                           kind:"用餐 · Lunch",     grab:0,   coords:[18.6302, 98.8902] },
     { id:"d2-huenpor",     day:2, time:"13:00", title:"Huen Por Sala Daeng",         titleEn:"27-rai Lanna Wooden Living Museum",         kind:"建築 · Heritage",  grab:50,  coords:[18.6285, 98.8915] },
     { id:"d2-weave",       day:2, time:"14:45", title:"Weave Artisan Society",       titleEn:"Reclaimed Ice Factory · Artisans",          kind:"工藝 · Artisan",   grab:530, coords:[18.7046, 98.9430] },
-    { id:"d2-huenphen",    day:2, time:"19:00", title:"Huen Phen Nimman 員工聚餐",   titleEn:"Studio Dinner · Northern Thai",             kind:"聚餐 · Dinner",    grab:120, highlight:true, coords:[18.8009, 98.9676] },
+    { id:"d1-nimman",      day:2, time:"19:00", title:"尼曼路自由晚餐",              titleEn:"Nimman Free Dinner",                        kind:"自由 · Free time", grab:0, free:true, coords:[18.8000, 98.9686] },
     { id:"d2-akyra",       day:2, time:"21:00", title:"Akyra Manor · Rise Rooftop",  titleEn:"Boutique Hotel Rooftop Bar",                kind:"夜間 · Bonus",     grab:80, bonus:true, coords:[18.8001, 98.9700] },
 
     // ───── Day 3 — 5/16 六 ─────
