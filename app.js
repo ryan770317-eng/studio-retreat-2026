@@ -159,7 +159,7 @@
 
   // ---------- SPA rosters ----------
   function renderSpaRosters() {
-    ['d3-sense-spa'].forEach(id => {
+    ['d3-spa'].forEach(id => {
       const wrap = document.querySelector(`[data-spa-list="${id}"]`);
       if (!wrap) return;
       const list = signups[id] || [];
@@ -327,6 +327,29 @@
   }
   if (typeof L !== 'undefined') initTripMaps();
   else window.addEventListener('load', initTripMaps);
+
+  // ---------- Day jumper active state ----------
+  const jumper = document.getElementById('dayjumper');
+  if (jumper) {
+    const links = Array.from(jumper.querySelectorAll('a[href^="#"]'));
+    const targets = links.map(a => {
+      const id = a.getAttribute('href').slice(1);
+      return { link: a, el: document.getElementById(id) };
+    }).filter(t => t.el);
+
+    function updateActive() {
+      const offset = 180; // topbar + jumper height + buffer
+      const y = window.scrollY + offset;
+      let current = targets[0];
+      for (const t of targets) {
+        if (t.el.offsetTop <= y) current = t;
+      }
+      links.forEach(a => a.classList.remove('active'));
+      if (current) current.link.classList.add('active');
+    }
+    window.addEventListener('scroll', updateActive, { passive: true });
+    updateActive();
+  }
 
   // ---------- Initial render ----------
   renderAllRosters();
