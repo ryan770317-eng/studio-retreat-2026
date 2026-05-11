@@ -7,7 +7,7 @@ window.TRIP = {
     subtitle: "就曰設計 × 朋棚創作 2026 員工旅遊",
     subtitleEn: "Annual Studio Retreat",
     departISO: "2026-05-14T07:30:00+08:00",
-    crew: 9
+    crew: 11
   },
   stops: [
     // ───── Day 1 — 5/14 四 ─────

@@ -203,7 +203,7 @@
     setText('grab-cm', cm.toLocaleString() + ' 銖');
     setText('grab-bk', bk.toLocaleString() + ' 銖');
     setText('grab-total', (cm+bk).toLocaleString() + ' 銖');
-    setText('grab-perhead', '≈ ' + Math.round(cm / 9).toLocaleString() + ' 銖');
+    setText('grab-perhead', '≈ ' + Math.round(cm / (window.TRIP?.meta?.crew || 11)).toLocaleString() + ' 銖');
   }
   calcGrab();
 
