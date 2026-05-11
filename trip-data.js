@@ -29,18 +29,18 @@ window.TRIP = {
     { id:"d2-akyra",       day:2, time:"21:00", title:"Akyra Manor · Rise Rooftop",  titleEn:"Boutique Hotel Rooftop Bar",                kind:"夜間 · Bonus",     grab:80, bonus:true, coords:[18.8001, 98.9700] },
 
     // ───── Day 3 — 5/16 六 ─────
-    { id:"d3-maiiam",      day:3, time:"10:00", title:"MAIIAM 當代美術館",            titleEn:"MAIIAM Contemporary Art Museum",            kind:"美術館 · Museum",  grab:220, coords:[18.7746, 99.0689] },
-    { id:"d3-kalm",        day:3, time:"12:30", title:"Kalm Village + 午餐",          titleEn:"Art · Craft · Culture Center",              kind:"文化 · Culture",   grab:120, coords:[18.7867, 98.9853] },
-    { id:"d3-dibdee",      day:3, time:"14:10", title:"dibdee.binder",                titleEn:"Hand-bound Notebook Studio",                kind:"選物 · Boutique",  grab:0,   coords:[18.7898, 98.9876] },
-    { id:"d3-watumong",    day:3, time:"15:05", title:"Wat Umong 地下隧道森林廟",     titleEn:"Forest Tunnel Temple",                      kind:"寺廟 · Temple",    grab:80,  coords:[18.7763, 98.9484] },
-    { id:"d3-spa",         day:3, time:"17:00", title:"Oasis Spa Lanna 古城",         titleEn:"Premium Lanna-Style Villa Spa",             kind:"SPA · Spa",        grab:80, spa:"oasis", coords:[18.7857, 98.9824] },
+    { id:"d4-phalat",      day:3, time:"05:55", title:"Wat Pha Lat 叢林秘境寺廟",     titleEn:"Misty Jungle Temple · Sunrise",             kind:"晨拍 · Sunrise",   grab:200, coords:[18.7993, 98.9326] },
+    { id:"d4-maya",        day:3, time:"09:30", title:"MAYA Lifestyle Mall",          titleEn:"MAYA Mall · Late Brunch + Shopping",        kind:"購物 · Shopping",  grab:0,   coords:[18.8009, 98.9669] },
+    { id:"d4-srisuphan",   day:3, time:"14:30", title:"Wat Sri Suphan 銀廟",          titleEn:"The Silver Temple",                         kind:"寺廟 · Temple",    grab:120, coords:[18.7796, 98.9893] },
+    { id:"d4-ordinary",    day:3, time:"15:35", title:"Ordinary Selected",            titleEn:"Designer JUN's Menswear & Curated Goods",   kind:"選物 · Boutique",  grab:0,   coords:[18.7793, 98.9890] },
+    { id:"d4-wualai-mkt",  day:3, time:"16:15", title:"Wualai 週六銀器夜市",          titleEn:"Saturday Walking Street",                   kind:"夜市 · Market",    grab:80,  coords:[18.7800, 98.9885] },
 
     // ───── Day 4 — 5/17 日 ─────
-    { id:"d4-phalat",      day:4, time:"05:55", title:"Wat Pha Lat 叢林秘境寺廟",     titleEn:"Misty Jungle Temple · Sunrise",             kind:"晨拍 · Sunrise",   grab:200, coords:[18.7993, 98.9326] },
-    { id:"d4-maya",        day:4, time:"09:30", title:"MAYA Lifestyle Mall",          titleEn:"MAYA Mall · Late Brunch + Shopping",        kind:"購物 · Shopping",  grab:0,   coords:[18.8009, 98.9669] },
-    { id:"d4-srisuphan",   day:4, time:"14:30", title:"Wat Sri Suphan 銀廟",          titleEn:"The Silver Temple",                         kind:"寺廟 · Temple",    grab:120, coords:[18.7796, 98.9893] },
-    { id:"d4-ordinary",    day:4, time:"15:35", title:"Ordinary Selected",            titleEn:"Designer JUN's Menswear & Curated Goods",   kind:"選物 · Boutique",  grab:0,   coords:[18.7793, 98.9890] },
-    { id:"d4-wualai-mkt",  day:4, time:"16:15", title:"Wualai 週六銀器夜市",          titleEn:"Saturday Walking Street",                   kind:"夜市 · Market",    grab:80,  coords:[18.7800, 98.9885] },
+    { id:"d3-maiiam",      day:4, time:"10:00", title:"MAIIAM 當代美術館",            titleEn:"MAIIAM Contemporary Art Museum",            kind:"美術館 · Museum",  grab:220, coords:[18.7746, 99.0689] },
+    { id:"d3-kalm",        day:4, time:"12:30", title:"Kalm Village + 午餐",          titleEn:"Art · Craft · Culture Center",              kind:"文化 · Culture",   grab:120, coords:[18.7867, 98.9853] },
+    { id:"d3-dibdee",      day:4, time:"14:10", title:"dibdee.binder",                titleEn:"Hand-bound Notebook Studio",                kind:"選物 · Boutique",  grab:0,   coords:[18.7898, 98.9876] },
+    { id:"d3-watumong",    day:4, time:"15:05", title:"Wat Umong 地下隧道森林廟",     titleEn:"Forest Tunnel Temple",                      kind:"寺廟 · Temple",    grab:80,  coords:[18.7763, 98.9484] },
+    { id:"d3-spa",         day:4, time:"17:00", title:"Oasis Spa Lanna 古城",         titleEn:"Premium Lanna-Style Villa Spa",             kind:"SPA · Spa",        grab:80, spa:"oasis", coords:[18.7857, 98.9824] },
 
     // ───── Day 5 — 5/18 一 ─────
     { id:"d5-airport",     day:5, time:"09:00", title:"清邁機場 · 各自登機",          titleEn:"Departure Day",                             kind:"航班 · Departure", skipJoin:true, coords:[18.7669, 98.9626] },
